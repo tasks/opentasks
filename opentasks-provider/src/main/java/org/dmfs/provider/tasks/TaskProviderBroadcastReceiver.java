@@ -57,7 +57,7 @@ public class TaskProviderBroadcastReceiver extends BroadcastReceiver
         Intent alarmIntent = new Intent(context, TaskProviderBroadcastReceiver.class);
         alarmIntent.setAction(ACTION_NOTIFICATION_ALARM);
 
-        PendingIntent pendingIntent = PendingIntent.getBroadcast(context, REQUEST_CODE_ALARM, alarmIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(context, REQUEST_CODE_ALARM, alarmIntent, PendingIntent.FLAG_IMMUTABLE | PendingIntent.FLAG_UPDATE_CURRENT);
 
         // cancel any previous alarm
         am.cancel(pendingIntent);
