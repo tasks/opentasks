@@ -255,7 +255,7 @@ public enum ContentOperation
 
             if (nextAlarm != null)
             {
-                TaskProviderBroadcastReceiver.planNotificationUpdate(context, nextAlarm);
+//                TaskProviderBroadcastReceiver.planNotificationUpdate(context, nextAlarm);
             }
             else
             {
