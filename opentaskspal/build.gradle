@@ -1,4 +1,8 @@
 apply plugin: 'com.android.library'
+apply plugin: 'maven-publish'
+
+group = 'com.github.tasks'
+version = '1.0'
 
 android {
     compileSdkVersion COMPILE_SDK_VERSION.toInteger()
@@ -32,4 +36,15 @@ dependencies {
     testImplementation deps.robolectric
     testImplementation deps.junit
     testImplementation deps.mockito
+}
+
+publishing {
+    publications {
+        aar(MavenPublication) {
+            groupId = 'com.github.tasks'
+            artifactId = 'opentaskspal'
+            version = '1.0'
+            artifact file('build/outputs/aar/opentaskspal-release.aar')
+        }
+    }
 }

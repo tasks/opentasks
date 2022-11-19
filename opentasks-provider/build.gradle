@@ -1,4 +1,8 @@
 apply plugin: 'com.android.library'
+apply plugin: 'maven-publish'
+
+group = 'com.github.tasks'
+version = '1.0'
 
 android {
     compileSdkVersion COMPILE_SDK_VERSION.toInteger()
@@ -47,4 +51,15 @@ dependencies {
     androidTestImplementation deps.jems_testing
     androidTestImplementation deps.hamcrest
     androidTestImplementation deps.contentpal_testing
+}
+
+publishing {
+    publications {
+        aar(MavenPublication) {
+            groupId = 'com.github.tasks'
+            artifactId = 'opentasks-provider'
+            version = '1.0'
+            artifact file('build/outputs/aar/opentasks-provider-release.aar')
+        }
+    }
 }
